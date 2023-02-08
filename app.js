@@ -1,6 +1,5 @@
 let express = require('express');
 let app = express();
-// let port = 7700;
 let cors = require('cors');
 let dotenv = require('dotenv');
 dotenv.config()
@@ -8,8 +7,6 @@ let port = process.env.PORT || 7700;
 let bodyParser = require('body-parser');
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
-// let mongoUrl = "mongodb://127.0.0.1:27017";
-// let mongoUrl = "mongodb+srv://test:test123@cluster0.ghtlxtr.mongodb.net/?retryWrites=true&w=majority"
 let mongoUrl = process.env.LiveMongo;
 let db = {};
 
@@ -65,6 +62,8 @@ app.post('/usermenu', (req, res) => {
            if(err) throw err
            res.send(data);
         })
+    }else{
+        res.send('Invalid Input')
     }
 })
 
