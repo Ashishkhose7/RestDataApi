@@ -95,7 +95,13 @@ app.get('/filters/:mealid', (req, res) => {
     if (req.query.sort) {
         sort = { cost: req.query.sort };
     }
-    if (cuisineid) {
+    if(hcost && lcost && cuisineid){
+        query={
+            "mealTypes.mealtype_id":mealid,
+             "cuisines.cuisine_id": cuisineid,
+            $and:[{cost:{$gt:lcost,$lt:hcost}}]
+        }
+    }else if (cuisineid) {
         query = {
             "mealTypes.mealtype_id": mealid,
             "cuisines.cuisine_id": cuisineid
