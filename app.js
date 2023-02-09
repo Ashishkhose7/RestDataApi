@@ -105,6 +105,10 @@ app.get('/filters/:mealid', (req, res) => {
             "mealTypes.mealtype_id": mealid,
              $and:[{cost:{$gt:lcost,$lt:hcost}}]
         };
+    }else{
+        query={
+            "mealTypes.mealtype_id":mealid
+        }
     }
     
     db.collection('restaurants').find(query).sort(sort).toArray((err, result) => {
