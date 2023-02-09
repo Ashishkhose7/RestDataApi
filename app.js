@@ -91,10 +91,11 @@ app.get('/filters/:mealid', (req, res) => {
     let lcost = Number(req.query.lcost);
     let hcost = Number(req.query.hcost);
     let query = {};
+    let sort = {cost:1};
     if (req.query.sort) {
         sort = { cost: req.query.sort };
     }
-    if (mealid && cuisineid) {
+    if (cuisineid) {
         query = {
             "mealTypes.mealtype_id": mealid,
             "cuisines.cuisine_id": cuisineid
@@ -102,15 +103,10 @@ app.get('/filters/:mealid', (req, res) => {
     } else if (lcost && hcost) {
         query = {
             "mealTypes.mealtype_id": mealid,
-            cost: { $gt: lcost, $lt: hcost }
-            // $and:[{cost:{$gt:lcost,$lt:hcost}}]
+             $and:[{cost:{$gt:lcost,$lt:hcost}}]
         };
     }
-    else if (mealid) {
-        query = {
-            "mealTypes.mealtype_id": mealid,
-        };
-    }
+    
     db.collection('restaurants').find(query).sort(sort).toArray((err, result) => {
         if (err) throw err;
         res.send(result);
