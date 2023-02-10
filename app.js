@@ -57,8 +57,8 @@ app.get('/menu/:restid', (req, res) => {
 
 //menu user selected
 app.post('/usermenu', (req, res) => {
-    if(Array.isArray(req.body.id)){
-        db.collection('menu').find({menu_id:{$in:req.body.id}}).toArray((err, data) => {
+    if(Array.isArray(req.body)){
+        db.collection('menu').find({menu_id:{$in:req.body}}).toArray((err, data) => {
            if(err) throw err
            res.send(data);
         })
