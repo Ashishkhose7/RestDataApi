@@ -155,18 +155,20 @@ app.get('/vieworder', (req, res)=>{
     })
 })
 
-app.put('/updateOrder/:email',(req, res) => {
-    let uemail = req.params.email;
+///update order
+app.put('/updateOrder/:id',(req,res) => {
+    let oid = Number(req.params.id);
     db.collection('orders').updateOne(
-        {email:uemail},
+        {orderId:oid},
         {
-            $set: {
-                "price": req.body.price,
+            $set:{
+                "status":req.body.status,
+                "bank_name":req.body.bank_name,
+                "date":req.body.date
             }
-        },
-        (err, result) => {
-            if (err) throw err;
-            res.send("Order updated successfully");
+        },(err,result) =>{
+            if(err) throw err;
+            res.send('Order Updated')
         }
     )
 })
