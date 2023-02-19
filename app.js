@@ -159,7 +159,7 @@ app.get('/vieworder', (req, res)=>{
 app.put('/updateOrder/:id',(req,res) => {
     let oid = Number(req.params.id);
     db.collection('orders').updateOne(
-        {orderId:oid},
+        {id:oid},
         {
             $set:{
                 "status":req.body.status,
