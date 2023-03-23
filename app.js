@@ -8,6 +8,7 @@ let bodyParser = require('body-parser');
 let mongo = require('mongodb');
 let MongoClient = mongo.MongoClient;
 let mongoUrl = process.env.LiveMongo;
+const placeorderMailer = require("./mailers/placedorder_mailer");
 let db = {};
 
 // middleware
@@ -135,6 +136,7 @@ app.get('/restdetails/:restid', (req, res) => {
 app.post('/placeorder', (req, res) => {
    db.collection('orders').insert(req.body, (err, result) => {
     if (err) throw err;
+    placeorderMailer.newOrderplaced(req.body);
     res.send('order placed');   
    })
 })
