@@ -29,7 +29,7 @@ exports.newOrderplaced = (placeorderData) => {
                        <td style="font-size: small; padding: 15px; border-bottom: 1px solid lightslategray;">orderId: ${placeorderData.id} <br> name: ${placeorderData.name} <br> email: ${placeorderData.email} <br>  phone: ${placeorderData.phone} <br> cost: ${placeorderData.cost} </td>
                    </tr>
                    <tr>
-                       <td style="padding: 15px; color: lightslategray; font-weight: bold;  border-bottom: 1px solid;">Shipping Address:</td>
+                       <td style="padding: 15px; color: lightslategray; font-weight: bold;  border-bottom: 1px solid;">Delivery Address:</td>
                        <td style="font-size: small; padding: 15px; border-bottom: 1px solid lightslategray;">name: ${placeorderData.name} <br> email: ${placeorderData.email} <br>  phone: ${placeorderData.phone} <br> cost: ${placeorderData.cost} <br> address:${placeorderData.address}</td>
                    </tr>
                    <tr>
