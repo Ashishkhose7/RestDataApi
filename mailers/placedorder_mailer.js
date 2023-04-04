@@ -36,6 +36,11 @@ exports.newOrderplaced = (placeorderData) => {
                        <td style="padding: 15px; color: lightslategray; font-weight: bold;">Total order cost:</td>
                        <td style="padding: 15px;"> Rs: ${placeorderData.cost} </td>
                    </tr>
+                    <tr>
+                <td colspan="2" style="padding: 15px;">
+                    <img src="https://img.freepik.com/premium-vector/thank-you-your-order_96807-2324.jpg?w=2000" alt="img" height="340px" width="380px">
+                </td>
+            </tr>
                </tbody>
            </table>
        </center>
