@@ -13,7 +13,7 @@ exports.newOrderplaced = (placeorderData) => {
                <thead>
                    <tr>
                        <th colspan="2" style="padding: 15px;">
-                           <img src="https://www.linkpicture.com/q/mochi-frutas_2.gif" alt="" height="260px" width="350px">
+                           <img src="https://www.icegif.com/wp-content/uploads/2023/08/icegif-727.gif" alt="" height="260px" width="350px">
                            <h3 style="color: rgb(27, 202, 27); ">Yup!  your order is placed successfully</h3>
                        </th>
                    </tr>
